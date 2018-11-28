@@ -19,6 +19,7 @@ const AppRoute: Routes =
     { path: '', component: HomeComponent },
     { path: 'servers', component: ServersComponent },
     { path: 'users', component: UsersComponent },
+    { path: 'users/:id/:name', component: UserComponent }
 
   ];
 
@@ -26,7 +27,7 @@ const AppRoute: Routes =
   declarations: [
     AppComponent,
     HomeComponent,
-    UsersComponent, 
+    UsersComponent,
     ServersComponent,
     UserComponent,
     EditServerComponent,
