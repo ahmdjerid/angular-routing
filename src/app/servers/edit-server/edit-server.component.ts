@@ -13,6 +13,7 @@ export class EditServerComponent implements OnInit {
   serverName = '';
   serverStatus = '';
   idserverToUpdate = 0;
+  isEditAllowed = false;
   constructor(private serversService: ServersService,
     private activatedRoute: ActivatedRoute) { }
 
@@ -23,7 +24,12 @@ export class EditServerComponent implements OnInit {
         this.idserverToUpdate = param['id'];
       }
     );
-
+    this.activatedRoute.queryParams.subscribe(
+      (params: Params) => {
+      this.isEditAllowed = params['isAllowd'];
+        console.log(params['isAllowd']);
+      }
+    );
     this.server = this.serversService.getServer(+this.idserverToUpdate);
     if (this.server) {
       this.serverName = this.server.name;
