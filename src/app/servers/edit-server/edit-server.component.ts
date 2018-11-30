@@ -26,8 +26,8 @@ export class EditServerComponent implements OnInit {
     );
     this.activatedRoute.queryParams.subscribe(
       (params: Params) => {
-      this.isEditAllowed = params['isAllowd'];
-        console.log(params['isAllowd']);
+        this.isEditAllowed = params['isAllowd'] === '0' ? true : false;
+        console.log(this.isEditAllowed);
       }
     );
     this.server = this.serversService.getServer(+this.idserverToUpdate);

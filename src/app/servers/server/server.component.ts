@@ -22,9 +22,7 @@ export class ServerComponent implements OnInit {
     );
   }
   onEdit() {
-    console.log("this");
-    console.log(this.route);
-    this.route.navigate(['servers', this.server.id, 'edit']);
+    this.route.navigate(['servers', this.server.id, 'edit'], { queryParamsHandling: 'preserve' });
   }
 
 }
